@@ -13,6 +13,12 @@ data "aws_iam_policy_document" "eks_cluster_assume_role" {
   }
 }
 
+resource "aws_iam_role_policy_attachment" "node_group_AmazonEKS_CNI_Policy" {
+  role       = aws_iam_role.node_group.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+
 resource "aws_iam_role" "node_group" {
   name = "${var.cluster_name}-node-group-role"
   assume_role_policy = data.aws_iam_policy_document.node_group_assume_role.json
