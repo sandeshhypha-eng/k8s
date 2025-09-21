@@ -8,9 +8,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "your-terraform-state-bucket"
+    bucket         = "dev-eks-state-hypha"
     key            = "dev/terraform.tfstate"
-    region         = "us-west-2"
+    region         = "ap-south-1"
     encrypt        = true
     use_lockfile   = true
   }
