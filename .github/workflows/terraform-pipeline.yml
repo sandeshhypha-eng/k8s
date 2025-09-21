@@ -74,8 +74,11 @@ jobs:
       - name: Wait for approval
         uses: trstringer/manual-approval@v1
         with:
-          reviewers: sandeshhypha-eng
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          approvers: sandeshhypha-eng   # GitHub username(s), comma-separated if multiple
+          secret: ${{ secrets.GITHUB_TOKEN }}
+          minimum-approvals: 1          # how many approvals required
+          issue-title: "Terraform Apply Approval Needed"
+          issue-body: "Please approve or deny the Terraform Apply step."
 
       - name: Checkout main branch
         uses: actions/checkout@v4
