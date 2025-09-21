@@ -17,4 +17,7 @@ resource "aws_eks_node_group" "this" {
   tags = {
     Name = "${var.cluster_name}-nodegroup"
   }
+  depends_on = [
+    aws_eks_cluster.this
+  ]
 }
