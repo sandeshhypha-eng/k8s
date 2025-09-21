@@ -42,7 +42,7 @@ module "eks" {
 
 module "nodegroup" {
   source         = "../modules/nodegroup"
-  cluster_name   = var.cluster_name
+  cluster_name   = module.eks.cluster_name   # pass output here
   node_role_arn  = module.iam.node_role_arn
   k8s_version    = var.k8s_version
   subnet_ids     = module.vpc.private_subnet_ids

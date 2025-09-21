@@ -19,6 +19,10 @@ resource "aws_eks_cluster" "this" {
   depends_on = [var.cluster_role_arn]
 }
 
+output "cluster_name" {
+  value = aws_eks_cluster.this.name
+}
+
 output "cluster_id" {
   value = aws_eks_cluster.this.id
 }
