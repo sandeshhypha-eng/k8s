@@ -21,8 +21,6 @@ jobs:
         uses: snyk/actions/setup@master
       - name: Run Snyk IaC Test
         uses: snyk/actions/iac@master
-        with:
-          args: --severity-threshold=medium
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
