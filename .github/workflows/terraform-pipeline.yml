@@ -18,9 +18,9 @@ jobs:
         with:
           ref: main
       - name: Set up Snyk
-        uses: snyk/actions/setup@v3
+        uses: snyk/actions/setup@master
       - name: Run Snyk IaC Test
-        uses: snyk/actions/iac@v3
+        uses: snyk/actions/iac@master
         with:
           args: --severity-threshold=medium
         env:
