@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  issues: write     # allow creating approval issues
+  contents: read    # allow checkout of repo
+
 jobs:
   checkout-and-scan:
     name: Checkout & Snyk Scan
