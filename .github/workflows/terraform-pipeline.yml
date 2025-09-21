@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-
+  workflow_dispatch:   # 👈 allows manual trigger from GitHub Actions UI
 permissions:
   issues: write     # allow creating approval issues
   contents: read    # allow checkout of repo
