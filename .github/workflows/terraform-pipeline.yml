@@ -13,12 +13,16 @@ jobs:
     name: Checkout & Snyk Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout main branch
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Set up Snyk
-        uses: snyk/actions/setup@v2
-      - name: Run Snyk to check Terraform files
-        run: snyk iac test --severity-threshold=medium
+        uses: snyk/actions/setup@v3
+      - name: Run Snyk IaC Test
+        uses: snyk/actions/iac@v3
+        with:
+          args: --severity-threshold=medium
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
@@ -30,8 +34,10 @@ jobs:
       run:
         working-directory: dev
     steps:
-      - name: Checkout code
+      - name: Checkout main branch
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
       - name: Terraform Init
@@ -63,8 +69,10 @@ jobs:
         uses: reviewdog/action-wait-approval@v1
         with:
           reviewers: sandeshhypha-eng
-      - name: Checkout code
+      - name: Checkout main branch
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
       - name: Terraform Init
