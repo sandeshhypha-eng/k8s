@@ -40,11 +40,6 @@ variable "k8s_version" {
   default     = "1.31"
 }
 
-variable "ssh_key_name" {
-  description = "EC2 SSH key name for node group remote access"
-  type        = string
-  default     = ""
-}
 
 variable "environment" {
   description = "Environment tag for resources (e.g., dev, prod)"

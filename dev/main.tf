@@ -46,5 +46,4 @@ module "nodegroup" {
   node_role_arn  = module.iam.node_role_arn
   k8s_version    = var.k8s_version
   subnet_ids     = module.vpc.private_subnet_ids
-  ssh_key_name   = var.ssh_key_name
 }

@@ -14,9 +14,6 @@ resource "aws_eks_node_group" "this" {
 
   instance_types = ["t3.medium"]
 
-  remote_access {
-    ec2_ssh_key = var.ssh_key_name
-  }
 
   tags = {
     Name = "${var.cluster_name}-nodegroup"
